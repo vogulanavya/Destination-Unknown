@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Destination Unknown</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #e8e2c9;
+            padding: 15px 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .contact {
+            background: #f3f1ea;
+            padding: 80px 0;
+        }
+
+        form {
+            max-width: 400px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #e46f6f;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #cc5a5a;
+        }
+
+        footer {
+            background: #4f7fa3;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        @media(max-width:768px){
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <h3>Destination Unknown</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+
+        <form onsubmit="showMessage(event)">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Last Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <h3>Get in touch</h3>
+    <p>123-456-7890</p>
+    <p>info@email.com</p>
+</footer>
+
+<script>
+function showMessage(event){
+    event.preventDefault();
+    alert("Thank you! We will contact you soon.");
+}
+</script>
+
+</body>
+</html>

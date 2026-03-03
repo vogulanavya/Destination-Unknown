@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Unknown</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* ===== NAVBAR ===== */
+        header {
+            background: #e8e2c9;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: #e8e2c9;
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero img {
+            width: 420px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: normal;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: #f3f1ea;
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: #4f7fa3;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* ===== DISCOVERIES (NEW SECTION) ===== */
+        .discoveries {
+            background: #f6f6f4;
+            padding: 80px 0;
+        }
+
+        .discoveries h1 {
+            font-size: 55px;
+            color: #4f7fa3;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .discoveries .top-text {
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .line {
+            height: 3px;
+            background: #4f7fa3;
+            margin: 40px 0 60px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .stat-box h2 {
+            font-size: 70px;
+            color: #4f7fa3;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .stat-box h3 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: #e8e2c9;
+            padding: 70px 0;
+        }
+
+        .contact form {
+            max-width: 400px;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .contact button {
+            background: #e46f6f;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #4f7fa3;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* ===== MOBILE ===== */
+        @media(max-width:768px) {
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Destination Unknown</h1>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="travel.jpg" alt="Travel Image">
+            <div class="hero-text">
+                <h1>Your Next Adventure Awaits</h1>
+                <p>Planning Experiences Beyond Ordinary</p>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Our Team</h2>
+            <div class="about-grid">
+                <div>
+                    <p> The heart of Destination Unknown is our team of travel lovers who know that no two journeys
+                        should be the same. We specialize in creating personalized adventures that match your style,
+                        interests, and dreams. Let us handle the details while you focus on making memories. </p>
+                </div>
+                <div>
+                    <p> We're committed to making every journey extraordinary. Our mission is simple: create adventures
+                        that speak to your soul and exceed your expectations. With deep local knowledge and meticulous
+                        planning, we turn your travel dreams into seamless reality. </p>
+                </div>
+            </div> <img src="team.jpg" width="300">
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <h1>Explore Beyond Boundaries</h1>
+            <p> We specialize in turning curiosity into unforgettable journeys. From adrenaline-pumping adventures to
+                meaningful cultural exchanges, our personalized approach ensures every trip reveals something
+                extraordinary – perfectly matched to what moves and inspires you. </p>
+            <div class="service-row">
+                <h3>Epic Adventures</h3> <span>Unforgettable Thrills</span>
+            </div>
+            <div class="service-row">
+                <h3>Authentic Connections</h3> <span>Living Like Locals</span>
+            </div>
+            <div class="service-row">
+                <h3>Undiscovered Wonders</h3> <span>Off-Map Adventures</span>
+            </div>
+            <div class="service-row">
+                <h3>Personalized Adventure</h3> <span> Dream Destinations</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCOVERIES -->
+    <section class="discoveries" id="discoveries">
+        <div class="container">
+            <h1>Travel Discoveries</h1>
+
+            <p class="top-text">
+                Dive into extraordinary destinations and authentic cultural experiences.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <h2>500+</h2>
+                    <h3>Adventure Seekers Served</h3>
+                    <p>Every journey we craft focuses on creating authentic moments and genuine connections that leave
+                        lasting impressions on our travelers</p>
+                </div>
+
+                <div class="stat-box">
+                    <h2>96%</h2>
+                    <h3>Travelers Who Return</h3>
+                    <p>
+                        Our travelers keep coming back because they know we deliver unique, personalized adventures that
+                        exceed expectations every time
+                    </p>
+                </div>
+
+                <div class="stat-box">
+                    <h2>10+</h2>
+                    <h3>Years Perfecting Adventures</h3>
+                    <p>
+                        Experience the difference that comes from years of passion, local knowledge, and dedication to
+                        making every journey extraordinary.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+
+            <form onsubmit="showMessage(event)">
+                <input type="text" placeholder="Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Get in touch</h3>
+        <p>123-456-7890</p>
+        <p>info@email.com</p>
+    </footer>
+
+    <script>
+        function showMessage(event) {
+            event.preventDefault();
+            alert("Thank you! We will contact you soon.");
+        }
+    </script>
+
+</body>
+
+</html>
