@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destination Unknown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         html {
@@ -24,29 +25,40 @@
         }
 
         /* ===== NAVBAR ===== */
-        header {
+        nav {
             background: #e8e2c9;
             padding: 15px 0;
-            position: sticky;
-            top: 0;
-        }
-
-        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            margin-left: 20px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 30px;
+            margin-right: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: black;
             font-weight: bold;
+        }
+
+        /* Hamburger */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            margin-right: 20px;
         }
 
         /* ===== HERO ===== */
@@ -63,6 +75,7 @@
 
         .hero img {
             width: 420px;
+            max-width: 100%;
         }
 
         .hero-text h1 {
@@ -82,6 +95,10 @@
             gap: 40px;
         }
 
+        .about img {
+            margin-top: 30px;
+        }
+
         /* ===== SERVICES ===== */
         .services {
             background: #4f7fa3;
@@ -96,7 +113,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* ===== DISCOVERIES (NEW SECTION) ===== */
+        /* ===== DISCOVERIES ===== */
         .discoveries {
             background: #f6f6f4;
             padding: 80px 0;
@@ -106,12 +123,6 @@
             font-size: 55px;
             color: #4f7fa3;
             font-weight: normal;
-            margin-bottom: 20px;
-        }
-
-        .discoveries .top-text {
-            max-width: 600px;
-            font-size: 18px;
         }
 
         .line {
@@ -133,19 +144,10 @@
             margin: 0;
         }
 
-        .stat-box h3 {
-            font-size: 24px;
-            margin: 15px 0;
-        }
-
         /* ===== CONTACT ===== */
         .contact {
             background: #e8e2c9;
             padding: 70px 0;
-        }
-
-        .contact form {
-            max-width: 400px;
         }
 
         .contact input,
@@ -161,24 +163,63 @@
             color: white;
             border: none;
             padding: 10px 25px;
-            margin-top: 10px;
             cursor: pointer;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: #4f7fa3;
-            color: white;
+        /* Footer */
+        .contact-section {
+            background-color: #4f7fa8;
             text-align: center;
-            padding: 30px 0;
+            padding: 80px 20px;
         }
 
-        /* ===== MOBILE ===== */
+        .social-icons a {
+            text-decoration: none;
+            color: black;
+            margin: 0 15px;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
         @media(max-width:768px) {
+
+            .container {
+                width: 90%;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: #e8e2c9;
+                width: 200px;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                display: none;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
 
             .hero-content {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
             }
 
             .about-grid {
@@ -187,12 +228,17 @@
 
             .service-row {
                 flex-direction: column;
-                gap: 10px;
+                text-align: center;
+                gap: 5px;
             }
 
             .stats {
                 flex-direction: column;
-                gap: 50px;
+                text-align: center;
+            }
+
+            .stat-box h2 {
+                font-size: 50px;
             }
         }
     </style>
@@ -201,18 +247,15 @@
 <body>
 
     <!-- NAVBAR -->
-    <header>
-        <div class="container">
-            <nav>
-                <h1>Destination Unknown</h1>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <nav>
+        <h1>Destination Unknown</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- HERO -->
     <section class="hero">
@@ -224,22 +267,23 @@
             </div>
         </div>
     </section>
+
     <!-- ABOUT -->
     <section class="about" id="about">
         <div class="container">
             <h2>About Our Team</h2>
             <div class="about-grid">
-                <div>
-                    <p> The heart of Destination Unknown is our team of travel lovers who know that no two journeys
-                        should be the same. We specialize in creating personalized adventures that match your style,
-                        interests, and dreams. Let us handle the details while you focus on making memories. </p>
-                </div>
-                <div>
-                    <p> We're committed to making every journey extraordinary. Our mission is simple: create adventures
-                        that speak to your soul and exceed your expectations. With deep local knowledge and meticulous
-                        planning, we turn your travel dreams into seamless reality. </p>
-                </div>
-            </div> <img src="team.jpg" width="300">
+                <p>
+                    The heart of Destination Unknown is our team of travel lovers who know that no two journeys
+                    should be the same. We specialize in creating personalized adventures that match your style,
+                    interests, and dreams. Let us handle the details while you focus on making memories./p>
+                <p>We're committed to making every journey extraordinary. Our mission is simple: create
+                    adventures that
+                    speak to your soul and exceed your expectations. With deep local knowledge and
+                    meticulousplanning,
+                    we turn your travel dreams into seamless reality.</p>
+            </div>
+            <img src="team.jpg" width="300">
         </div>
     </section>
 
@@ -259,47 +303,26 @@
             <div class="service-row">
                 <h3>Undiscovered Wonders</h3> <span>Off-Map Adventures</span>
             </div>
-            <div class="service-row">
-                <h3>Personalized Adventure</h3> <span> Dream Destinations</span>
-            </div>
         </div>
     </section>
 
     <!-- DISCOVERIES -->
-    <section class="discoveries" id="discoveries">
+    <section class="discoveries">
         <div class="container">
             <h1>Travel Discoveries</h1>
-
-            <p class="top-text">
-                Dive into extraordinary destinations and authentic cultural experiences.
-            </p>
-
             <div class="line"></div>
-
             <div class="stats">
                 <div class="stat-box">
                     <h2>500+</h2>
-                    <h3>Adventure Seekers Served</h3>
-                    <p>Every journey we craft focuses on creating authentic moments and genuine connections that leave
-                        lasting impressions on our travelers</p>
+                    <p>Adventure Seekers Served</p>
                 </div>
-
                 <div class="stat-box">
                     <h2>96%</h2>
-                    <h3>Travelers Who Return</h3>
-                    <p>
-                        Our travelers keep coming back because they know we deliver unique, personalized adventures that
-                        exceed expectations every time
-                    </p>
+                    <p>Travelers Who Return</p>
                 </div>
-
                 <div class="stat-box">
                     <h2>10+</h2>
-                    <h3>Years Perfecting Adventures</h3>
-                    <p>
-                        Experience the difference that comes from years of passion, local knowledge, and dedication to
-                        making every journey extraordinary.
-                    </p>
+                    <p>Years Experience</p>
                 </div>
             </div>
         </div>
@@ -309,11 +332,9 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-
-            <form onsubmit="showMessage(event)">
+            <form>
                 <input type="text" placeholder="Name" required>
-                <input type="text" placeholder="Last Name" required>
-                <input type="email" placeholder="Your Email" required>
+                <input type="email" placeholder="Email" required>
                 <textarea rows="4" placeholder="Message" required></textarea>
                 <button type="submit">Submit</button>
             </form>
@@ -321,16 +342,21 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <h3>Get in touch</h3>
+    <section class="contact-section">
+        <h1>Get in touch</h1>
         <p>123-456-7890</p>
-        <p>info@email.com</p>
-    </footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </section>
 
+    <!-- JS -->
     <script>
-        function showMessage(event) {
-            event.preventDefault();
-            alert("Thank you! We will contact you soon.");
+        document.querySelector(".menu-toggle").onclick = function () {
+            document.querySelector("nav ul").classList.toggle("active");
         }
     </script>
 
